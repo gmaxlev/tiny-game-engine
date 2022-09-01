@@ -1,6 +1,6 @@
-import { Stream } from "./Stream";
-import { Game } from "./Game";
-import { EventEmitter } from "./EventEmitter";
+import { Stream } from "../Stream";
+import { Game } from "../Game";
+import { EventEmitter } from "../EventEmitter";
 
 export class KeyFrames {
   static EVENTS = {

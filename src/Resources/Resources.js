@@ -1,6 +1,9 @@
 import { Resource } from "./Resource";
 import { EventEmitter } from "../EventEmitter";
 
+/**
+ * Allows to work with resources (images, sounds etc.)
+ */
 class Resources {
   static EVENTS = {
     LOAD_PROGRESS_EVENT: Symbol("LOAD_PROGRESS_EVENT"),

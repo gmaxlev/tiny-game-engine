@@ -2,11 +2,14 @@ import { Stream } from "../Stream";
 import { EventEmitter } from "../EventEmitter";
 
 /**
- * Handels
+ * Allows to handle events from display
  */
 export class InteractiveDisplay {
-  constructor({ canvasEl }) {
-    this.canvasEl = canvasEl;
+  /**
+   * @param {HTMLElement} htmlEl
+   */
+  constructor({ htmlEl }) {
+    this.htmlEl = htmlEl;
 
     this.layeredAreas = [];
     this.activeLayeredArea = null;
@@ -37,25 +40,25 @@ export class InteractiveDisplay {
   }
 
   setCursorStyle(style) {
-    this.canvasEl.style.cursor = style;
+    this.htmlEl.style.cursor = style;
   }
 
   run() {
-    this.canvasEl.addEventListener("mousemove", (e) => {
+    this.htmlEl.addEventListener("mousemove", (e) => {
       this.newPosition[0] = e.offsetX;
       this.newPosition[1] = e.offsetY;
     });
 
-    this.canvasEl.addEventListener("mouseleave", () => {
+    this.htmlEl.addEventListener("mouseleave", () => {
       this.newPosition[0] = null;
       this.newPosition[1] = null;
     });
 
-    this.canvasEl.addEventListener("mousedown", (e) => {
+    this.htmlEl.addEventListener("mousedown", (e) => {
       this.mouseDown = [e.offsetX, e.offsetY];
     });
 
-    this.canvasEl.addEventListener("mouseup", (e) => {
+    this.htmlEl.addEventListener("mouseup", (e) => {
       e.stopPropagation();
       this.mouseUp = [e.offsetX, e.offsetY];
     });

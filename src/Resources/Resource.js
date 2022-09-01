@@ -3,6 +3,9 @@ import { ImageResourceLoader } from "./ImageResourceLoader";
 import { ResourceLoader } from "./ResourceLoader";
 import { FontResourceLoader } from "./FontResourceLoader";
 
+/**
+ * Creates, loads and returns a resource
+ */
 class Resource {
   static EVENTS = {
     LOAD_PROGRESS_EVENT: Symbol("LOAD_PROGRESS_EVENT"),
@@ -10,6 +13,10 @@ class Resource {
     LOAD_EVENT: Symbol("LOAD_EVENT"),
   };
 
+  /**
+   * @param {string} path URL
+   * @param {*} [payload = undefined] payload
+   */
   constructor(path, payload) {
     this.path = path;
     this.isLoading = false;

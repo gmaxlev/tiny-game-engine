@@ -1,4 +1,4 @@
-import { Maths } from "./Maths";
+import { lerp } from "../Math";
 
 export class Color {
   constructor(r, g, b, a = 1) {
@@ -44,10 +44,10 @@ export class Color {
 
   static lerp(color1, color2, t) {
     return [
-      Math.round(Maths.lerp(color1.red, color2.red, t)),
-      Math.round(Maths.lerp(color1.green, color2.green, t)),
-      Math.round(Maths.lerp(color1.blue, color2.blue, t)),
-      Math.round(Maths.lerp(color1.alpha, color2.alpha, t)),
+      Math.round(lerp(color1.red, color2.red, t)),
+      Math.round(lerp(color1.green, color2.green, t)),
+      Math.round(lerp(color1.blue, color2.blue, t)),
+      Math.round(lerp(color1.alpha, color2.alpha, t)),
     ];
   }
 }

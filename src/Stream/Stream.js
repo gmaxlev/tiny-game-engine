@@ -1,6 +1,6 @@
 import { StreamsQueue } from "./StreamsQueue";
 
-export class Stream {
+class Stream {
   static processing = false;
 
   static queue = new StreamsQueue();
@@ -77,3 +77,5 @@ export class Stream {
     this.isActive = true;
   }
 }
+
+export { Stream };

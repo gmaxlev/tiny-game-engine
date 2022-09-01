@@ -1,5 +1,5 @@
-import { Stream } from "./Stream";
-import { Jobs } from "./Jobs";
+import { Stream } from "../Stream";
+import { Jobs } from "../Jobs";
 
 export class Game {
   static dt = 0;
