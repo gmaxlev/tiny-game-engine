@@ -1,9 +1,12 @@
 import { Stream } from "../Stream";
 import { EventEmitter } from "../EventEmitter";
 
-export const InteractiveDisplay = new (class InteractiveDisplay {
-  constructor() {
-    this.canvasEl = null;
+/**
+ * Handels
+ */
+export class InteractiveDisplay {
+  constructor({ canvasEl }) {
+    this.canvasEl = canvasEl;
 
     this.layeredAreas = [];
     this.activeLayeredArea = null;
@@ -24,30 +27,35 @@ export const InteractiveDisplay = new (class InteractiveDisplay {
     };
 
     this.events = new EventEmitter();
+
+    this.stream = new Stream({
+      fn: () => {
+        this.update();
+      },
+      start: false,
+    });
   }
 
   setCursorStyle(style) {
     this.canvasEl.style.cursor = style;
   }
 
-  run(canvasEl, parentStream) {
-    this.canvasEl = canvasEl;
-
-    canvasEl.addEventListener("mousemove", (e) => {
+  run() {
+    this.canvasEl.addEventListener("mousemove", (e) => {
       this.newPosition[0] = e.offsetX;
       this.newPosition[1] = e.offsetY;
     });
 
-    canvasEl.addEventListener("mouseleave", () => {
+    this.canvasEl.addEventListener("mouseleave", () => {
       this.newPosition[0] = null;
       this.newPosition[1] = null;
     });
 
-    canvasEl.addEventListener("mousedown", (e) => {
+    this.canvasEl.addEventListener("mousedown", (e) => {
       this.mouseDown = [e.offsetX, e.offsetY];
     });
 
-    canvasEl.addEventListener("mouseup", (e) => {
+    this.canvasEl.addEventListener("mouseup", (e) => {
       e.stopPropagation();
       this.mouseUp = [e.offsetX, e.offsetY];
     });
@@ -56,13 +64,7 @@ export const InteractiveDisplay = new (class InteractiveDisplay {
       this.mouseUp = [null, null];
     });
 
-    this.stream = new Stream({
-      fn: () => {
-        this.update();
-      },
-    });
-
-    parentStream.child(this.stream);
+    this.stream.continue();
   }
 
   sort() {
@@ -203,4 +205,4 @@ export const InteractiveDisplay = new (class InteractiveDisplay {
       }
     }
   }
-})();
+}
