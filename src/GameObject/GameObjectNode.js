@@ -25,8 +25,13 @@ export class GameObjectNode extends GameObject {
     this.destroyingJobs = new Jobs();
   }
 
-  /** @param {GameObjectNode} gameObjectNode */
+  /** @param {GameObjectNode|Array} gameObjectNode */
   connect(gameObjectNode) {
+    if (Array.isArray(gameObjectNode)) {
+      gameObjectNode.forEach((item) => this.connect(item));
+      return;
+    }
+
     if (this._destroyed || gameObjectNode._destroyed) {
       return;
     }
@@ -255,7 +260,7 @@ export class GameObjectNode extends GameObject {
 
     const updated = this.update();
     if (updated) {
-      ctx.drawImage(this.canvas, x, y);
+      ctx.drawImage(updated, x, y);
     }
   }
 

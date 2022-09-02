@@ -14,6 +14,11 @@ class Stream {
     this.isExecuting = false;
   }
 
+  /**
+   * Adds a stream to children
+   * @param stream
+   * @returns {Stream|undefined}
+   */
   child(stream) {
     if (Array.isArray(stream)) {
       stream.forEach((item) => {
@@ -25,7 +30,7 @@ class Stream {
     stream.parent = this;
     if (Stream.processing) {
       Stream.queue.child(stream);
-      return;
+      return stream;
     }
     this.children.push(stream);
     return stream;
