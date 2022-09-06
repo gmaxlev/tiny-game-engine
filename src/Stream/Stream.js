@@ -17,7 +17,7 @@ class Stream {
   /**
    * Adds a stream to children
    * @param stream
-   * @returns {Stream|undefined}
+   * @returns {Stream}
    */
   child(stream) {
     if (Array.isArray(stream)) {

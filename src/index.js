@@ -11,3 +11,4 @@ export * from "./EventEmitter";
 export * from "./Jobs";
 export * from "./Math";
 export * from "./Rectangle";
+export * from "./KeyboardListener";
