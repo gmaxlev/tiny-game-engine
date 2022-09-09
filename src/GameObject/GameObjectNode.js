@@ -221,21 +221,22 @@ export class GameObjectNode extends GameObject {
       return;
     }
 
-    let self = false;
+    const marks = this._marksForUpdate.frames.length > 0;
 
+    let offset = 0;
     this._marksForUpdate.frames = this._marksForUpdate.frames
       .map((item) => item - 1)
       .filter((item, index) => {
-        if (item === -1) {
-          this._marksForUpdate.marks.splice(index, 1);
+        if (item === 0) {
+          this._marksForUpdate.marks.splice(index - offset, 1);
+          offset += 1;
           return false;
         }
-        self = true;
         return true;
       });
 
     if (
-      !self &&
+      !marks &&
       this._marksForUpdate.marksConnected === 0 &&
       this._marksForUpdate.framesConnected === 0
     ) {
