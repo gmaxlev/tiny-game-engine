@@ -121,6 +121,7 @@ export class KeyFrames {
   }
 
   destroy() {
+    this.events.clear();
     this.stream.destroy();
   }
 
