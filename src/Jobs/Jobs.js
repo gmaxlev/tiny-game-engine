@@ -20,6 +20,12 @@ export class Jobs {
   }
 
   addOnce(fn) {
+    if (Array.isArray()) {
+      const unsubscribes = fn.map((item) => this.addOnce(item));
+      return () => {
+        unsubscribes.forEach((unsubscribe) => unsubscribe());
+      };
+    }
     const mode = () => {
       fn();
       this.delete(mode);
