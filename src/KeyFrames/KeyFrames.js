@@ -22,7 +22,7 @@ export class KeyFrames {
   }) {
     this.events = new EventEmitter();
     this.update = this.update.bind(this);
-    this.stream = new Stream({ fn: this.update, start });
+    this.stream = new Stream({ fn: this.update, start, name: "KeyFrames" });
     this.total = total;
     this.time = 0;
     this.current = 0;

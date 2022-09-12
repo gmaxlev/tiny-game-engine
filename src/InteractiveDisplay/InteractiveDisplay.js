@@ -36,6 +36,7 @@ export class InteractiveDisplay {
         this.update();
       },
       start: false,
+      name: "InteractiveDisplay",
     });
   }
 

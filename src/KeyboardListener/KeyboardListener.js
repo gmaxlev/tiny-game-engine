@@ -12,6 +12,7 @@ export class KeyboardListener {
     this.stream = new Stream({
       fn: () => this.update(),
       start: false,
+      name: "KeyboardListener",
     });
     this.destroyingJobs = new Jobs();
     this.queue = [];
