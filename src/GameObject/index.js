@@ -1,2 +1,3 @@
 export { GameObject } from "./GameObject";
-export { GameObjectNode } from "./GameObjectNode";
+export { GameObjectCanvas } from "./GameObjectCanvas";
+export { GameObjectPure } from "./GameObjectPure";
