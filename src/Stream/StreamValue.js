@@ -1,7 +1,7 @@
 import { Stream } from "./Stream";
 
 export class StreamValue extends Stream {
-  constructor({ fn, start, initialValue, name = null }) {
+  constructor({ fn = null, start = true, name = null, initialValue }) {
     super({
       fn: () => {
         this.value = fn(this.value);

@@ -5,9 +5,7 @@ class Stream {
 
   static queue = new StreamsQueue();
 
-  constructor(
-    { fn = null, start = true, name = null } = { fn: null, start: true }
-  ) {
+  constructor({ fn = null, start = true, name = null } = {}) {
     this.fn = fn;
     this.children = [];
     this.parent = null;

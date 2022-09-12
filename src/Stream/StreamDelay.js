@@ -2,7 +2,7 @@ import { Stream } from "./Stream";
 import { Game } from "../Game";
 
 export class StreamDelay extends Stream {
-  constructor({ fn, start = true, delay = 0, name = null }) {
+  constructor({ fn = null, start = true, name = null, delay = 0 }) {
     super({
       fn: () => this.update(),
       start,
