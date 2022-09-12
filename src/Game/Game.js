@@ -4,7 +4,9 @@ import { Jobs } from "../Jobs";
 export class Game {
   static dt = 0;
 
-  static stream = new Stream({ start: true });
+  static time = null;
+
+  static stream = new Stream({ start: true, name: "Root" });
 
   static jobs = {
     beforeUpdate: new Jobs(),
@@ -13,7 +15,7 @@ export class Game {
 
   constructor({ update, canvas }) {
     this.update = update;
-    this.time = 0;
+    Game.time = 0;
     this.canvas = canvas;
     this.frame = this.frame.bind(this);
   }
@@ -33,17 +35,17 @@ export class Game {
       Stream.queue.call();
     }
 
-    Game.dt = Math.min(Date.now() - this.time, 100);
+    Game.dt = Math.min(Date.now() - Game.time, 100);
     Game.jobs.beforeUpdate.run();
     this.update();
     Game.jobs.afterUpdate.run();
-    this.time = Date.now();
+    Game.time = Date.now();
   }
 
   run() {
     document.body.append(this.canvas);
     Game.stream.continue();
-    this.time = Date.now();
+    Game.time = Date.now();
     this.frame();
   }
 }
