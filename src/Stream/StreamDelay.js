@@ -2,10 +2,11 @@ import { Stream } from "./Stream";
 import { Game } from "../Game";
 
 export class StreamDelay extends Stream {
-  constructor({ fn, start = true, delay = 0 }) {
+  constructor({ fn, start = true, delay = 0, name = null }) {
     super({
       fn: () => this.update(),
       start,
+      name,
     });
     this.callback = fn;
     this.delay = delay;

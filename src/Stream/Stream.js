@@ -5,13 +5,16 @@ class Stream {
 
   static queue = new StreamsQueue();
 
-  constructor({ fn = null, start = true } = { fn: null, start: true }) {
+  constructor(
+    { fn = null, start = true, name = null } = { fn: null, start: true }
+  ) {
     this.fn = fn;
     this.children = [];
     this.parent = null;
     this.isActive = start;
     this.isDeleted = false;
     this.isExecuting = false;
+    this._name = name;
   }
 
   /**
