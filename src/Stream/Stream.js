@@ -45,7 +45,7 @@ class Stream {
     this.isExecuting = true;
 
     if (this.fn) {
-      this.fn();
+      this.fn(this);
     }
 
     if (!this.isActive || this.isDeleted) {

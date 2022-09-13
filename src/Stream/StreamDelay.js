@@ -19,7 +19,7 @@ export class StreamDelay extends Stream {
 
   update() {
     if (this.time >= this.delay) {
-      this.callback();
+      this.callback(this);
       this.time = 0;
       this.stop();
       return;

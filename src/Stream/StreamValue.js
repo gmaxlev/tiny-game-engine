@@ -4,7 +4,7 @@ export class StreamValue extends Stream {
   constructor({ fn = null, start = true, name = null, initialValue }) {
     super({
       fn: () => {
-        this.value = fn(this.value);
+        this.value = fn(this.value, this);
       },
       start,
       name,
