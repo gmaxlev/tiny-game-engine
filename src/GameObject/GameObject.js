@@ -182,6 +182,7 @@ export class GameObject {
       GameObject.EVENTS.UNMARK_FOR_UPDATE,
       this._marksForUpdate.self.size
     );
+    this._marksForUpdate.self.clear();
     this.events.clear();
     this._destroyed = true;
   }
