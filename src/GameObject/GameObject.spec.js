@@ -13,10 +13,10 @@ describe("GameObjectNode", () => {
   let instance5;
 
   const MARK_1 = Symbol("MARK_1");
-  // const MARK_2 = Symbol('MARK_2')
-  // const MARK_3 = Symbol('MARK_3')
-  // const MARK_4 = Symbol('MARK_4')
-  // const MARK_5 = Symbol('MARK_5')
+  const MARK_2 = Symbol("MARK_2");
+  const MARK_3 = Symbol("MARK_3");
+  const MARK_4 = Symbol("MARK_4");
+  const MARK_5 = Symbol("MARK_5");
 
   beforeEach(() => {
     instance1 = new GameObject();
@@ -68,6 +68,17 @@ describe("GameObjectNode", () => {
         instance1.unmarkForUpdate(MARK_1);
         instance1.unmarkForUpdate(MARK_1);
         expect(instance1._marksForUpdate.self.has(MARK_1)).toBe(false);
+      });
+
+      test("Clear all marks", () => {
+        instance1.markForUpdate(MARK_1, Infinity);
+        instance1.markForUpdate(MARK_2, Infinity);
+        instance1.markForUpdate(MARK_3, Infinity);
+        instance1.markForUpdate(MARK_4, Infinity);
+        instance1.markForUpdate(MARK_5, Infinity);
+        expect(instance1._marksForUpdate.self.size).toBe(5);
+        instance1.clearMarksForUpdate();
+        expect(instance1._marksForUpdate.self.size).toBe(0);
       });
     });
   });

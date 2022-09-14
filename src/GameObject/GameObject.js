@@ -135,6 +135,21 @@ export class GameObject {
   }
 
   /**
+   * Removes all marks for update
+   */
+  clearMarksForUpdate() {
+    if (this._destroyed) {
+      return;
+    }
+
+    const size = this._marksForUpdate.self.size;
+    if (this._marksForUpdate.self.size > 0) {
+      this._marksForUpdate.self.clear();
+      this.events.emit(GameObject.EVENTS.UNMARK_FOR_UPDATE, size);
+    }
+  }
+
+  /**
    * Should be called in each frame
    * Returns true if the game object should render
    * @returns {boolean}
