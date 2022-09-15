@@ -8,3 +8,5 @@ export function lerp(a, b, t) {
   const fix = Math.max(0, Math.min(t, 1));
   return (1 - fix) * a + fix * b;
 }
+
+export const PI_OVER_180 = Math.PI / 180;
