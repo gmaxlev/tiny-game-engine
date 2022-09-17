@@ -53,10 +53,17 @@ export class Color {
     return this;
   }
 
-  lighten(c) {
-    this.red += (255 - this.red) * c;
-    this.green += (255 - this.green) * c;
-    this.blue += (255 - this.blue) * c;
+  lighten(color, c) {
+    this.red = color.red + (255 - color.red) * c;
+    this.green = color.green + (255 - color.green) * c;
+    this.blue = color.blue + (255 - color.blue) * c;
+    return this;
+  }
+
+  darken(color, c) {
+    this.red = (255 - color.red) * c;
+    this.green = (255 - color.green) * c;
+    this.blue = (255 - color.blue) * c;
     return this;
   }
 
@@ -72,12 +79,11 @@ export class Color {
     this._toStringCache = null;
   }
 
-  static lerp(color1, color2, t) {
-    return [
-      Math.round(lerp(color1.red, color2.red, t)),
-      Math.round(lerp(color1.green, color2.green, t)),
-      Math.round(lerp(color1.blue, color2.blue, t)),
-      Math.round(lerp(color1.alpha, color2.alpha, t)),
-    ];
+  lerp(color1, color2, t) {
+    this.red = lerp(color1.red, color2.red, t);
+    this.green = lerp(color1.green, color2.green, t);
+    this.blue = lerp(color1.blue, color2.blue, t);
+    this.alpha = lerp(color1.alpha, color2.alpha, t);
+    return this;
   }
 }
