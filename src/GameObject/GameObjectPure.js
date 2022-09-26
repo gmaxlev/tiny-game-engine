@@ -22,13 +22,4 @@ export class GameObjectPure extends GameObject {
       }
     }
   }
-
-  /**
-   * Renders a frame
-   * @param {CanvasRenderingContext2D} ctx
-   * @param {number} x
-   * @param {number} y
-   * @interface
-   */
-  render(ctx, x = 0, y = 0) {}
 }
