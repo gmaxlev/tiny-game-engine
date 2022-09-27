@@ -44,3 +44,7 @@ export function toNumber(string) {
   const number = Number(string);
   return isNumber(number) ? number : 0;
 }
+
+export function createArrayFrom(length) {
+  return Array.from({ length });
+}

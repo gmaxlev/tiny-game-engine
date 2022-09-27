@@ -5,4 +5,5 @@ export {
   toNumber,
   isNumber,
   isInt,
+  createArrayFrom,
 } from "./utils";
