@@ -18,7 +18,7 @@ export class GameObjectPure extends GameObject {
 
     if (gameObject instanceof GameObjectPure) {
       if (gameObject.update()) {
-        gameObject.render(this.ctx, x, y);
+        gameObject.render(ctx, x, y);
       }
     }
   }
