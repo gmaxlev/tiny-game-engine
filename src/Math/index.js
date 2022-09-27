@@ -16,23 +16,3 @@ export function lerp(a, b, t) {
 }
 
 export const PI_OVER_180 = Math.PI / 180;
-
-export function isInt(number) {
-  return Number(number) === number && number % 1 === 0;
-}
-
-export function isFloat(number) {
-  return Number(number) === number && number % 1 !== 0;
-}
-
-export function isNumber(number) {
-  return isInt(number) || isFloat(number);
-}
-
-export function toNumber(string) {
-  if (isNumber(string)) {
-    return string;
-  }
-  const number = Number(string);
-  return isNumber(number) ? number : 0;
-}
