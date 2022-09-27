@@ -1,4 +1,4 @@
-import { lerp } from "../Math";
+import { lerp } from "../math-utils";
 import { isNumber, toNumber } from "../utils";
 
 /* eslint no-shadow: 0 */

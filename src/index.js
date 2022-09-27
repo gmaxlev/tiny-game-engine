@@ -9,7 +9,7 @@ export * from "./colors-utils";
 export * from "./Bezier";
 export * from "./EventEmitter";
 export * from "./Jobs";
-export * from "./Math";
+export * from "./math-utils";
 export * from "./Rectangle";
 export * from "./KeyboardListener";
 export * from "./utils";

@@ -1,4 +1,4 @@
-import { getRandomInt } from "../Math";
+import { getRandomInt } from "../math-utils";
 
 /**
  * Returns a random element of an array
