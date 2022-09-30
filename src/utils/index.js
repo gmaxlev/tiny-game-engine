@@ -6,4 +6,5 @@ export {
   isNumber,
   isInt,
   createArrayFrom,
+  shuffleArray,
 } from "./utils";
