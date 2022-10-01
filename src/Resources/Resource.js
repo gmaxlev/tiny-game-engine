@@ -51,6 +51,10 @@ class Resource {
 
       xhr.addEventListener("loadend", (e) => {
         if (xhr.readyState === 4 && xhr.status === 200) {
+          if (this.loadingProgress !== 1) {
+            this.loadingProgress = 1;
+            this.events.emit(Resource.EVENTS.LOAD_PROGRESS_EVENT, 1);
+          }
           this._resolve(xhr.response.type, xhr.response);
         } else {
           this.isError = true;
