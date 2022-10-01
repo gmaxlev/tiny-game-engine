@@ -25,7 +25,7 @@ class FontResourceLoader extends ResourceLoader {
   }
 
   get() {
-    return null;
+    return this.font;
   }
 }
 
