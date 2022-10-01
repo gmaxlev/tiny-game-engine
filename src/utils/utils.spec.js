@@ -1,4 +1,4 @@
-import { getRandomElement, pipe } from "./utils";
+import { buildCanvasFont, getRandomElement, pipe } from "./utils";
 
 describe("utils.js", () => {
   test("getRandomElement()", () => {
@@ -14,5 +14,20 @@ describe("utils.js", () => {
         (value) => value.slice(3)
       )
     ).toBe("ING");
+  });
+  test("buildCanvasFont()", () => {
+    expect(buildCanvasFont()).toBe("16px");
+    expect(buildCanvasFont({})).toBe("16px");
+    expect(buildCanvasFont({ fontSize: "10px" })).toBe("10px");
+    expect(
+      buildCanvasFont({ fontSize: "20px", fontFamily: "RubikMonoOne" })
+    ).toBe("20px RubikMonoOne");
+    expect(
+      buildCanvasFont({
+        fontSize: "20px",
+        fontFamily: "RubikMonoOne",
+        fontWeight: "semibold",
+      })
+    ).toBe("semibold 20px RubikMonoOne");
   });
 });

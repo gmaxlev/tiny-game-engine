@@ -7,4 +7,5 @@ export {
   isInt,
   createArrayFrom,
   shuffleArray,
+  buildCanvasFont,
 } from "./utils";

@@ -65,3 +65,11 @@ export function shuffleArray(array) {
 
   return array;
 }
+
+export function buildCanvasFont({
+  fontWeight = "",
+  fontSize = "16px",
+  fontFamily = "",
+} = {}) {
+  return [fontWeight, fontSize, fontFamily].join(" ").trim();
+}
