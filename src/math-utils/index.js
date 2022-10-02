@@ -10,6 +10,10 @@ export function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+export function getRandomFloat(min, max, digits = 4) {
+  return Number((Math.random() * (max - min) + min).toFixed(digits));
+}
+
 export function lerp(a, b, t) {
   const fix = Math.max(0, Math.min(t, 1));
   return (1 - fix) * a + fix * b;
