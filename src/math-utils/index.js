@@ -19,4 +19,8 @@ export function lerp(a, b, t) {
   return (1 - fix) * a + fix * b;
 }
 
+export function limitNumber(from, to, number) {
+  return Math.max(from, Math.min(to, number));
+}
+
 export const PI_OVER_180 = Math.PI / 180;
