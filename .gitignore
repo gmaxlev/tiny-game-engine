@@ -1,7 +1,7 @@
 node_modules
-dist
-.vscode
+lib
 .idea
-.env
-.DS_Store
+dts
 coverage
+bin
+.DS_Store
