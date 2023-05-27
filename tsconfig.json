@@ -15,12 +15,10 @@
 
     /* Linting */
     "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
 
     /* Custom */
     "types": ["vite/client"]
   },
-  "include": ["src"]
+  "include": ["src/index.ts"]
 }
