@@ -20,5 +20,5 @@
     /* Custom */
     "types": ["vite/client"]
   },
-  "include": ["src/index.ts"]
+  "include": ["src"]
 }

@@ -1,8 +1,16 @@
 {
   "name": "tiny-game-engine",
-  "private": true,
   "version": "0.0.0",
   "type": "module",
+  "main": "src/index.ts",
+  "exports": {
+    "./math": "./src/math/index.ts",
+    "./core": "./src/core/index.ts",
+    "./geometry": "./src/geometry/index.ts",
+    "./resources": "./src/resources/index.ts",
+    "./go": "./src/go/index.ts",
+    ".": "./src/index.ts"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",

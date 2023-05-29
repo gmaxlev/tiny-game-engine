@@ -12,5 +12,11 @@ module.exports = {
     project: './tsconfig.json'
   },
   rules: {
+    "no-restricted-imports": [
+      "error",
+      {
+        "patterns": ["**/*/src/**/*", "**/*/src", "!./src/**/*", "!./src"]
+      }
+    ]
   }
 }

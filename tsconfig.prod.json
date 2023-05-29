@@ -3,5 +3,6 @@
   "compilerOptions": {
     "noUnusedLocals": true,
     "noUnusedParameters": true
-  }
+  },
+  "include": ["src/index.ts"]
 }
